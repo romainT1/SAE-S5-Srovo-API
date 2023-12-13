@@ -17,3 +17,7 @@ services:
     image: sonarqube:9.2-community
     ports:
       - "9000:9000"
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+      SONARQUBE_JDBC_USERNAME: admin
+      SONARQUBE_JDBC_PASSWORD: admin
