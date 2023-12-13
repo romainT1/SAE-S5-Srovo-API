@@ -26,6 +26,8 @@ jobs:
       
     - name: Official SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v2.0.1
+      env:
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       
     - name: Run JaCoCo for Code Coverage
       run: mvn test jacoco:report
