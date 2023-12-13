@@ -14,7 +14,7 @@ services:
       - "27018:27017"
 
   sonarqube:
-    image: sonarqube:latest
+    image: sonarqube:9.2-community
     ports:
       - "9000:9000"
     environment:
