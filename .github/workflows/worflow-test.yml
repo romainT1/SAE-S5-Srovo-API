@@ -6,9 +6,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     
@@ -47,10 +45,16 @@ jobs:
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       
     - name: Run JaCoCo for Code Coverage
-      run: mvn test jacoco:report
+      run: mvn jacoco:report
+
+      - name: Upload JaCoCo report
+        uses: jacoco-reporter/jacoco-report@v1
+        with:
+          report-path: target/site/jacoco/jacoco.xml
+          coverage-gate: 80
       
     - name: Stop Docker
       if: always()
       run: docker-compose down
-
+          
 
