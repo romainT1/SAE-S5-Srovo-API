@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>fr.gr3.strovo</groupId>
-    <artifactId>StrovoApi</artifactId>
+    <artifactId>StrovoAPI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>StrovoApi</name>
-    <description>StrovoApi</description>
+    <name>StrovoAPI</name>
+    <description>StrovoAPI</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -50,6 +50,15 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
